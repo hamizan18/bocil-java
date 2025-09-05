@@ -20,7 +20,7 @@ public class Q3 {
             System.out.println(a - b);
             System.out.println(a * b);
             System.out.println(a / b);
-            System.out.println(a + (double)b);
+            System.out.println(a / (double)b);
             System.out.println(a % b);
 
             int x = 5; x += 3; x *= 2;
