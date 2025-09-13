@@ -2,14 +2,11 @@ import java.util.Scanner;
 
 public class additionalQuest {
     static Scanner input = new Scanner(System.in);
-    public static int attack(int chosenSkill, String[] skills, int[] dmg, int playerHp, int enemyDamage){
-        int i;
-        for (i = 0;i < skills.length;i++){
-            if (chosenSkill == i){
-                System.out.println("Hero uses " + skills[i] + "! Enemy takes " + dmg[i] + " damage.");
-                playerHp -= enemyDamage;
-            }
-        }
+    public static int enemyAttack(int chosenSkill, String[] skills, int[] dmg, int playerHp, int enemyDamage){
+
+        System.out.println("Hero uses " + skills[chosenSkill-1] + "! Enemy takes [" + dmg[chooseSkill-1] + "] damage.");
+        playerHp -= enemyDamage;
+        
         return playerHp;
     }
     public static int heal(int hp, int amount){
@@ -52,12 +49,7 @@ public class additionalQuest {
         return chosen-1;
     }
     public static int chooseSkill(int choice, int[] dmg, int enemyHp){
-        int i;
-        for (i = 0;i < dmg.length;i++){
-            if (choice == i){
-                enemyHp -= dmg[choice];
-            }
-        }
+        enemyHp -= dmg[choice-1];
         return enemyHp;
     }
     public static void main(String[] args)
@@ -76,7 +68,7 @@ public class additionalQuest {
                 case 1: 
                     chosenSkill = printSkill(skills, damage);
                     enemyHp = chooseSkill(chosenSkill, damage, enemyHp);
-                    playerHp = attack(chosenSkill, skills, damage, playerHp, damageRandom);
+                    playerHp = enemyAttack(chosenSkill, skills, damage, playerHp, damageRandom);
                     playerHp = playerCorrection(playerHp);
                     enemyHp = enemyCorrection(enemyHp);
                     showStatus(playerHp, enemyHp); 
