@@ -14,20 +14,37 @@ public class mainQuest6 {
         return hp;
     }
     public static void showStatus(int hp, int enemyHp){
-        System.out.println("Player HP: " + hp + "| Enemy HP: " + enemyHp);
+        if (hp > 0 && enemyHp >  0){
+            System.out.println("Player HP: " + hp + " | Enemy HP: " + enemyHp);
+        } else if (hp < 0){
+            System.out.println("Player HP: " + hp + " | Enemy HP: " + enemyHp);
+            System.out.println("Player lose!");
+        } else if (enemyHp < 0){
+            System.out.println("Player HP: " + hp + " | Enemy HP: " + enemyHp);
+            System.out.println("Enemy lose!");
+        } else {
+            System.out.println("Player HP: " + hp + " | Enemy HP: " + enemyHp);
+            System.out.println("Draw!");
+        }
     }
     public static int enemyAttack(int hp, int dmg){
         return hp -= dmg;
     }
     public static int playerCorrection(int hp){
-        if (hp < 0) return hp = 0;
+        if (hp < 0) {
+            return hp = 0;
+        }
+        return hp = hp;
     }
     public static int enemyCorrection(int enemyHp){
-        if (enemyHp < 0) return enemyHp = 0;
+        if (enemyHp < 0) {
+            return enemyHp = 0;
+        }
+        return enemyHp = enemyHp;
     }
     public static void main(String[] args){
         try (Scanner input = new Scanner(System.in)){
-            int playerHp = 100, enemyHp = 80, choice;
+            int playerHp = 100, enemyHp = 80, choice, attack, chosenSkill;
 
             while (playerHp > 0 && enemyHp > 0){
                 int damageRandom = (int)(Math.random() * 12) + 18;
