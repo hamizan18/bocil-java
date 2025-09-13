@@ -5,8 +5,9 @@ public class additionalQuest {
     public static int enemyAttack(int chosenSkill, String[] skills, int[] dmg, int playerHp, int enemyDamage){
 
         System.out.println("Hero uses " + skills[chosenSkill-1] + "! Enemy takes [" + dmg[chooseSkill-1] + "] damage.");
+        System.out.println("Enemy strikes back! Deals " + enemyDamage + " damage.");
         playerHp -= enemyDamage;
-        
+
         return playerHp;
     }
     public static int heal(int hp, int amount){
@@ -20,8 +21,10 @@ public class additionalQuest {
             System.out.println("Player HP: " + hp + " | Enemy HP: " + enemyHp);
             System.out.println("Draw!");
         } else if (hp == 0){
+            System.out.println("Player HP: " + hp + " | Enemy HP: " + enemyHp);
             System.out.println("Player lose!");
         } else if (enemyHp == 0){
+            System.out.println("Player HP: " + hp + " | Enemy HP: " + enemyHp);
             System.out.println("Enemy lose!");
         } else {
             System.out.println("Player HP: " + hp + " | Enemy HP: " + enemyHp);
