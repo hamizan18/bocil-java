@@ -34,13 +34,13 @@ public class mainQuest6 {
         if (hp < 0) {
             return hp = 0;
         }
-        return hp = hp;
+        return hp;
     }
     public static int enemyCorrection(int enemyHp){
         if (enemyHp < 0) {
             return enemyHp = 0;
         }
-        return enemyHp = enemyHp;
+        return enemyHp;
     }
     public static void main(String[] args){
         try (Scanner input = new Scanner(System.in)){
@@ -48,6 +48,7 @@ public class mainQuest6 {
 
             while (playerHp > 0 && enemyHp > 0){
                 int damageRandom = (int)(Math.random() * 12) + 18;
+                int enemyDamage = (int)(Math.random() * 12) + 20; 
                 int randomRegen = (int)(Math.random() * 5) + 10;
 
                 System.out.print("1. Attack\n2. Heal\n3. Run\nChoose your action: ");
@@ -55,14 +56,14 @@ public class mainQuest6 {
                 switch(choice){
                     case 1: 
                         enemyHp = attack("Fireball", damageRandom, enemyHp); 
-                        playerHp = enemyAttack(playerHp, damageRandom);
+                        playerHp = enemyAttack(playerHp, enemyDamage);
                         playerHp = playerCorrection(playerHp);
                         enemyHp = enemyCorrection(enemyHp);
                         showStatus(playerHp, enemyHp); 
                         break;
                     case 2: 
                         playerHp = heal(playerHp, randomRegen); 
-                        playerHp = enemyAttack(playerHp, damageRandom);
+                        playerHp = enemyAttack(playerHp, enemyDamage);
                         playerHp = playerCorrection(playerHp);
                         enemyHp = enemyCorrection(enemyHp);
                         showStatus(playerHp, enemyHp); 
