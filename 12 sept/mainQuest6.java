@@ -68,6 +68,7 @@ public class mainQuest6 {
                         showStatus(playerHp, enemyHp); 
                         break;
                     case 3: 
+                        System.out.println("You leave the battle..");
                         playerHp = playerCorrection(playerHp);
                         enemyHp = enemyCorrection(enemyHp);
                         showStatus(playerHp, enemyHp); 
