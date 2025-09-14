@@ -4,8 +4,8 @@ public class additionalQuest {
     static Scanner input = new Scanner(System.in);
     public static int enemyAttack(int chosenSkill, String[] skills, int[] dmg, int playerHp, int enemyDamage){
 
-        System.out.println("Hero uses " + skills[chosenSkill-1] + "! Enemy takes [" + dmg[chooseSkill-1] + "] damage.");
-        System.out.println("Enemy strikes back! Deals " + enemyDamage + " damage.");
+        System.out.println("\nHero uses " + skills[chosenSkill] + "! Enemy takes [" + dmg[chosenSkill] + " damage]");
+        System.out.println("Enemy strikes back! Deals [" + enemyDamage + " damage]");
         playerHp -= enemyDamage;
 
         return playerHp;
@@ -52,7 +52,7 @@ public class additionalQuest {
         return chosen-1;
     }
     public static int chooseSkill(int choice, int[] dmg, int enemyHp){
-        enemyHp -= dmg[choice-1];
+        enemyHp -= dmg[choice];
         return enemyHp;
     }
     public static void main(String[] args)
@@ -83,7 +83,7 @@ public class additionalQuest {
                     showStatus(playerHp, enemyHp); 
                     break;
                 case 3: 
-                    System.out.println("You leave the battle..");
+                    System.out.println("\nYou leave the battle..");
                     playerHp = playerCorrection(playerHp);
                     enemyHp = enemyCorrection(enemyHp);
                     showStatus(playerHp, enemyHp); 
