@@ -18,7 +18,7 @@ class Enemy {
     int attackPower;
 
     int attack(Hero hero) {
-        System.out.println(name + " menyerang " + hero + " dengan " + " damage!");
+        System.out.println(name + " menyerang " + hero.name + " dengan " + attackPower + " damage!");
         hero.hp -= attackPower;
         return hero.hp;
     }
@@ -39,9 +39,9 @@ public class classnObject {
         enemy1.attackPower = 12;
 
         hero1.showStatus();
-        enemy1.showStatus();
-
         hero1.attack(enemy1);
+
+        enemy1.showStatus();
         enemy1.attack(hero1);
     }
 }
